@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 import os
 
 st.title("Financial Transaction Fraud Detection")
@@ -9,7 +9,7 @@ st.title("Financial Transaction Fraud Detection")
 model_path = os.path.join("models", "random_forest_model.pkl")
 
 with open(model_path, "rb") as f:
-    model = pickle.load(f)
+    model = joblib.load(f)
 
 st.write("Enter transaction details")
 

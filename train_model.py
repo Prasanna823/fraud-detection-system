@@ -1,5 +1,5 @@
 import pandas as pd
-import pickle
+import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -31,8 +31,8 @@ rf = RandomForestClassifier()
 rf.fit(X_train, y_train)
 
 # Save models
-pickle.dump(lr, open("models/logistic_model.pkl", "wb"))
-pickle.dump(dt, open("models/decision_tree_model.pkl", "wb"))
-pickle.dump(rf, open("models/random_forest_model.pkl", "wb"))
+joblib.dump(lr, open("models/logistic_model.pkl", "wb"))
+joblib.dump(dt, open("models/decision_tree_model.pkl", "wb"))
+joblib.dump(rf, open("models/random_forest_model.pkl", "wb"))
 
 print("Models trained and saved successfully!")
