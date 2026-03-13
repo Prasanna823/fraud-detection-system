@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Fraud Detection System</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h2>Financial Transaction Fraud Detection</h2>
+
+<form action="/predict" method="post">
+
+<label>Time (Transaction time sequence)</label>
+<input type="number" step="any" name="f1" required>
+
+<label>Amount (Transaction amount)</label>
+<input type="number" step="any" name="f2" required>
+
+<label>V1 - Transaction Frequency Behavior</label>
+<input type="number" step="any" name="f3" required>
+
+<label>V2 - Device or Login Pattern</label>
+<input type="number" step="any" name="f4" required>
+
+<label>V3 - Spending Pattern Deviation</label>
+<input type="number" step="any" name="f5" required>
+
+<label>V4 - Transaction Location Pattern</label>
+<input type="number" step="any" name="f6" required>
+
+<label>V5 - Account Activity Behavior</label>
+<input type="number" step="any" name="f7" required>
+
+<label>V6 - Payment Method Pattern</label>
+<input type="number" step="any" name="f8" required>
+
+<label>V7 - Merchant Interaction Behavior</label>
+<input type="number" step="any" name="f9" required>
+
+<label>V8 - Overall Risk Score Pattern</label>
+<input type="number" step="any" name="f10" required>
+
+<br><br>
+
+<button type="submit">Predict Fraud</button>
+
+</form>
+
+<h3>{{ prediction_text }}</h3>
+
+</body>
+
+</html>
