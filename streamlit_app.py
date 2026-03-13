@@ -1,16 +1,19 @@
 import streamlit as st
 import numpy as np
 import pickle
-
-# Load trained model
-model = pickle.load(open("models/random_forest_model.pkl", "rb"))
+import os
 
 st.title("Financial Transaction Fraud Detection")
 
-st.write("Enter transaction details to predict fraud.")
+# Load model
+model_path = os.path.join("models", "random_forest_model.pkl")
 
-# Inputs
-time = st.number_input("Time (Transaction time)")
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+
+st.write("Enter transaction details")
+
+time = st.number_input("Time")
 amount = st.number_input("Amount")
 
 v1 = st.number_input("V1 - Transaction Frequency Behavior")
@@ -22,7 +25,6 @@ v6 = st.number_input("V6 - Payment Method Pattern")
 v7 = st.number_input("V7 - Merchant Interaction Behavior")
 v8 = st.number_input("V8 - Risk Score Pattern")
 
-# Prediction button
 if st.button("Predict Fraud"):
 
     features = np.array([[time, amount, v1, v2, v3, v4, v5, v6, v7, v8]])
